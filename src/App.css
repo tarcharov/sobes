@@ -1,0 +1,8 @@
+.button-add{
+  width: 100%;
+}
+
+.items{
+  display: flex;
+  gap: 20px;
+}
