@@ -28,13 +28,13 @@ function App() {
         }).then((result) => result.json()).then(res => setData(prev => [...prev,res]));
     }
 
-    const onclickDelete = () => {
-        fetch(URL+`/${inputId}`,{
+    const onclickDelete = (itemId) => {
+        fetch(URL+`/${itemId}`,{
             method: "DELETE",
             headers:{
                 "Content-type":"application/json",
             },
-        }).then(() => setData(prev => prev.filter((item)=>item.id.toString()!==inputId.toString())));
+        }).then(() => setData(prev => prev.filter((item)=>item.id.toString()!==itemId.toString())));
     }
 
     const onclickChange = () => {
@@ -54,12 +54,13 @@ function App() {
         <input type="text" placeholder="title" size={20} value={inputTitle} onChange={e=> setInputTitle(e.target.value)}/>
         <input type="text" placeholder="description" size={20} value={inputDescription} onChange={e=> setInputDescription(e.target.value)}/>
         <button className="button-add" onClick={onclickAdd}>ADD</button>
-        <button className="button-add" onClick={onclickDelete}>DELETE</button>
+
         <button className="button-add" onClick={onclickChange}>CHANGE</button>
-        {data.length > 0 ? (data.map((item)=>(<div className="items">
+        {data.length > 0 ? (data.map((item)=>(<div className="items" key={item.id}>
                 <div className="item">{item.id}</div>
                 <div className="item" contentEditable>{item.title}</div>
-                <div className="item">{item.description}</div>
+                <div className="item" contentEditable>{item.description}</div>
+                <button className="" onClick={()=>onclickDelete(item.id)}>DELETE</button>
             </div>
             )
         )) : null}
