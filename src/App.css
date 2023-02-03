@@ -1,8 +1,8 @@
 .button-add{
-  width: 100%;
+  width: 50%;
 }
 
 .items{
-  display: flex;
+  display: inline-flex;
   gap: 20px;
 }
