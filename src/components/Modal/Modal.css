@@ -1,0 +1,15 @@
+.modal{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: beige;
+    display: none;
+}
+
+.modal-active{
+    display: flex;
+}
+
+.modal-content{
+    display: flex;
+}
