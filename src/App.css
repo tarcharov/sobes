@@ -1,8 +1,49 @@
-.button-add{
-  width: 50%;
-}
 
+.header{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.header > input{
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.items-wrapper{
+  margin: 5px 0;
+}
 .items{
   display: inline-flex;
-  gap: 20px;
+  gap: 30px;
+  width: 100%;
+}
+
+.button-add{
+  width: 50px;
+  height: 30px;
+  position: relative;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: darkgoldenrod;
+  overflow: hidden;
+}
+.button-add:before{
+  content:'';
+  position: absolute;
+  top: 0;
+  left:-200px;
+  width: 60px;
+  height: 100%;
+  background-color: #fff;
+  filter: blur(30px);
+  transform: skew(-30deg);
+  animation: blick 2s ease forwards infinite;
+}
+
+@keyframes blick {
+  100%{
+      left:calc(100% + 150px);
+  }
 }

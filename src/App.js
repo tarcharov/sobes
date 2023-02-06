@@ -62,20 +62,20 @@ function App() {
   return (
     <div className="App">
         <Modal active={modalActive} setActive={setModalActive} text={modalText}/>
-        <div>
+        <div className="header">
             <input type="text" placeholder="title" size={20} value={inputTitle} onChange={e=> setInputTitle(e.target.value)}/>
             <input type="text" placeholder="description" size={20} value={inputDescription} onChange={e=> setInputDescription(e.target.value)}/>
             <button className="button-add" onClick={onclickAdd}>ADD</button>
         </div>
         {data.length > 0 ? (data.map((item)=>(
-            <div>
-                <div className="items" key={item.id}>
-                    <div className="item">{item.id}</div>
-                    <div className="item" contentEditable suppressContentEditableWarning={true} onBlur={e => onChangeClick(item.id, e.currentTarget.textContent, item.description)}>{item.title}</div>
-                    <div className="item" contentEditable suppressContentEditableWarning={true} onBlur={e => onChangeClick(item.id, item.title,e.currentTarget.textContent)}>{item.description}</div>
-                    <button className="" onClick={()=>onclickDelete(item.id)}>DELETE</button>
+                <div className="items-wrapper">
+                    <div className="items" key={item.id}>
+                        <div className="item">{item.id}</div>
+                        <div className="item" contentEditable suppressContentEditableWarning={true} onBlur={e => onChangeClick(item.id, e.currentTarget.textContent, item.description)}>{item.title}</div>
+                        <div className="item" contentEditable suppressContentEditableWarning={true} onBlur={e => onChangeClick(item.id, item.title,e.currentTarget.textContent)}>{item.description}</div>
+                        <button className="button-delete" onClick={()=>onclickDelete(item.id)}>DELETE</button>
+                    </div>
                 </div>
-            </div>
             )
         )) : null}
     </div>
