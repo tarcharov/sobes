@@ -1,5 +1,5 @@
 import './App.css';
-
+import delete_icon from "./assets/img/delete.svg"
 import {useEffect, useState} from "react";
 import Modal from "./components/Modal/Modal";
 
@@ -70,10 +70,16 @@ function App() {
         {data.length > 0 ? (data.map((item)=>(
                 <div className="items-wrapper">
                     <div className="items" key={item.id}>
-                        <div className="item">{item.id}</div>
+                        <div className="item-id">{item.id}</div>
                         <div className="item" contentEditable suppressContentEditableWarning={true} onBlur={e => onChangeClick(item.id, e.currentTarget.textContent, item.description)}>{item.title}</div>
                         <div className="item" contentEditable suppressContentEditableWarning={true} onBlur={e => onChangeClick(item.id, item.title,e.currentTarget.textContent)}>{item.description}</div>
-                        <button className="button-delete" onClick={()=>onclickDelete(item.id)}>DELETE</button>
+                        <svg className="delete_icon" onClick={()=>onclickDelete(item.id)}>
+                            <path className="st1" d="M17,5l-3-3h-4L7,5H17z"/>
+                            <line className="st0" x1="4" y1="4" x2="20" y2="4"/>
+                            <line className="st0" x1="14" y1="18" x2="14" y2="7"/>
+                            <line className="st0" x1="10" y1="18" x2="10" y2="7"/>
+                            <path className="st0" d="M6,4v16c0,0.6,0.4,1,1,1h10c0.6,0,1-0.4,1-1V4"/>
+                        </svg>
                     </div>
                 </div>
             )

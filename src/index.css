@@ -1,8 +1,16 @@
+@font-face {
+  font-family: "MultiroundPro";
+  src: local("MultiroundPro"),
+  url("/src/assets/fonts/MultiroundPro.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: darkcyan;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', "MultiroundPro",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

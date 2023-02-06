@@ -1,3 +1,10 @@
+.App{
+  font-family: "MultiroundPro";
+  font-size: 16px;
+}
+
+.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+.st1{stroke:#000000}
 
 .header{
   display: flex;
@@ -11,14 +18,22 @@
   margin-right: 5px;
 }
 .items-wrapper{
-  margin: 5px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
 }
 .items{
   display: inline-flex;
   gap: 30px;
-  width: 100%;
 }
-
+.item{
+  width: 200px;
+}
+.item-id{
+  width: 40px;
+}
 .button-add{
   width: 50px;
   height: 30px;
@@ -41,7 +56,13 @@
   transform: skew(-30deg);
   animation: blick 2s ease forwards infinite;
 }
-
+.delete_icon{
+  height: 30px;
+  width: 30px;
+}
+.delete_icon:hover .st0, .delete_icon:hover .st1{
+  stroke:red;
+}
 @keyframes blick {
   100%{
       left:calc(100% + 150px);
