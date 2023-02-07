@@ -1,5 +1,4 @@
 import './App.css';
-import delete_icon from "./assets/img/delete.svg"
 import {useEffect, useState} from "react";
 import Modal from "./components/Modal/Modal";
 
@@ -63,7 +62,7 @@ function App() {
     <div className="App">
         <div className={modalActive ? "modals-wrapper active" : "modals-wrapper"}>
             {modalArr.length > 0 ? (modalArr.map((item)=>(
-                <Modal setActive={setModalActive} setModalArr={setModalArr} item={item}/>
+                <Modal key={item.id} setActive={setModalActive} setModalArr={setModalArr} item={item}/>
             ))):null}
         </div>
         <div className="header">
