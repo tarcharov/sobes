@@ -10,7 +10,8 @@ function App() {
     const [inputTitle,setInputTitle] = useState("")
     const [inputDescription,setInputDescription] = useState("")
     const [modalActive,setModalActive] = useState(false)
-    const [modalText,setModalText] = useState("")
+    // const [modalText,setModalText] = useState("")
+    const [modalArr,setModalArr] = useState([])
     useEffect(() => {
         fetch(URL,{
             method: "GET",
@@ -51,17 +52,20 @@ function App() {
         }).then((result) => result.json()).then((res) => setData(data.map((item)=>{
             return item.id.toString() === id.toString() ? res : item
         })));
-        console.log(data)
         openModal("ONCHANGE")
     }
 
     const openModal = (text) =>{
         setModalActive(true)
-        setModalText(text)
+        setModalArr(prev => [...prev,{id:prev.length,text:text}])
     }
   return (
     <div className="App">
-        <Modal active={modalActive} setActive={setModalActive} text={modalText}/>
+        <div className={modalActive ? "modals-wrapper active" : "modals-wrapper"}>
+            {modalArr.length > 0 ? (modalArr.map((item)=>(
+                <Modal setActive={setModalActive} setModalArr={setModalArr} item={item}/>
+            ))):null}
+        </div>
         <div className="header">
             <input type="text" placeholder="title" size={20} value={inputTitle} onChange={e=> setInputTitle(e.target.value)}/>
             <input type="text" placeholder="description" size={20} value={inputDescription} onChange={e=> setInputDescription(e.target.value)}/>

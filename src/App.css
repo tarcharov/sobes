@@ -2,6 +2,18 @@
   font-family: "MultiroundPro";
   font-size: 16px;
 }
+.modals-wrapper{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: beige;
+  display: none;
+  flex-direction: column;
+}
+
+.active{
+  display: flex;
+}
 
 .st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
 .st1{stroke:#000000}

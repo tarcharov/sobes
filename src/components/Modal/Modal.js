@@ -1,11 +1,18 @@
 import './Modal.css';
 
-function Modal({active,setActive,text}) {
+function Modal({item,setModalArr}) {
+
+    const onClose = (item) => {
+        setModalArr(prev => prev.filter((el)=>{
+            console.log(el,item)
+            return el.id!==item.id
+        }))
+    }
         return(
-            <div className={active ? "modal modal-active" : "modal"}>
+            <div className="modal">
                 <div className="modal-content">
-                    <p>{text}</p>
-                    <button onClick={()=>setActive(false)}>Закрытьб</button>
+                    <p>{item.text}</p>
+                    <button onClick={()=>onClose(item)}>Закрытьб</button>
                 </div>
             </div>
         );
